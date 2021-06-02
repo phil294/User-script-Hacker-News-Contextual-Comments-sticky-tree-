@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hacker News Contextual Comments (sticky tree)
-// @version      0.3
+// @version      0.4
 // @description  Sticks the first line of all comments in the visible comment tree to the top of the screen so you always know where exactly you are. See the screenshots for a better understanding. Also adds the ability to expand/collapse a comment by clicking anywhere on it.
 // @author       phil294
 // @match        https://news.ycombinator.com/item?id=*
