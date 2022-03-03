@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hacker News Contextual Comments (sticky tree)
-// @version      0.4
+// @version      0.4.1
 // @description  Sticks the first line of all comments in the visible comment tree to the top of the screen so you always know where exactly you are. See the screenshots for a better understanding. Also adds the ability to expand/collapse a comment by clicking anywhere on it.
 // @author       phil294
 // @match        https://news.ycombinator.com/item?id=*
@@ -20,6 +20,12 @@ tr.comtr {
 }
 tr.comtr.noshow {
 	display: none;
+}
+td.default > div:first-child {
+	margin: 0 !important;
+}
+td.default > br {
+	display: none;
 }`
 document.head.appendChild(style)
 
@@ -27,7 +33,7 @@ let i_zindex = 0
 
 for(const com of document.querySelectorAll('tr.comtr')) {
 	const nesting_level = com.querySelector('.ind > img').width / 40
-	com.style.top = `calc(${nesting_level} * 2.6em)`
+	com.style.top = `calc(${nesting_level} * 2.3em)`
 	com.style.zindex = ++i_zindex
 	com.onclick = async () => {
 		com.querySelector('a.togg').click()
